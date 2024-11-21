@@ -1,0 +1,170 @@
+package Base;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+/*
+ *  common methods to manage Driver & wait
+ *  @Author Manish.Yadav
+ * 
+ * */
+
+public class AmazonBrowser {
+	public static URL url = null;
+//	static LaunchWebsite wb=new LaunchWebsite();
+
+	static Map<Long, WebDriver> webDriverTestMap = new HashMap<Long, WebDriver>();
+	static Map<Long, AppiumDriver> appiumDriverTestMap = new HashMap<Long, AppiumDriver>();
+	static Map<Long, WebDriverWait> webDriverwaitTestMap = new HashMap<Long, WebDriverWait>();
+	static Map<Long, WebDriverWait> webDriverMiniwaitTestMap = new HashMap<Long, WebDriverWait>();
+	static Map<Long, WebDriverWait> appiumDriverwaitTestMap = new HashMap<Long, WebDriverWait>();
+
+	/**
+	 * To get Driver for current Thread
+	 */
+
+	public static synchronized WebDriver getWebDriver() {
+		if (null != webDriverTestMap && null != webDriverTestMap.get(Thread.currentThread().getId()))
+			return webDriverTestMap.get(Thread.currentThread().getId());
+		else
+			openBrowser();
+		return webDriverTestMap.get(Thread.currentThread().getId());
+	}
+
+	/**
+	 * To set WebDriver for current Thread
+	 * 
+	 */
+	private static synchronized void setWebDriver(WebDriver driver) {
+		webDriverTestMap.put(Thread.currentThread().getId(), driver);
+	}
+
+	/**
+	 * To get appium Driver for current Thread
+	 */
+
+	public static synchronized WebDriver getAppiumDriver() {
+		if (null != appiumDriverTestMap && null != appiumDriverTestMap.get(Thread.currentThread().getId()))
+			return appiumDriverTestMap.get(Thread.currentThread().getId());
+		else
+
+			return appiumDriverTestMap.get(Thread.currentThread().getId());
+	}
+
+	/**
+	 * To set appiumDriver for current Thread
+	 * 
+	 */
+	private static synchronized void setAppiumDriver(AppiumDriver appiumdriver) {
+		appiumDriverTestMap.put(Thread.currentThread().getId(), (AndroidDriver) appiumdriver);
+	}
+
+	/**
+	 * To set appiumDriver wait for current Thread
+	 * 
+	 */
+	private static synchronized void setAppiumWait(WebDriverWait appiumwait) {
+		appiumDriverwaitTestMap.put(Thread.currentThread().getId(), appiumwait);
+	}
+
+	/**
+	 * To get appiumDriver wait for current Thread
+	 * 
+	 */
+	public static synchronized WebDriverWait getAppiumWait() {
+		return appiumDriverwaitTestMap.get(Thread.currentThread().getId());
+	}
+
+	/**
+	 * To set WebDriver wait for current Thread
+	 * 
+	 */
+	private static synchronized void setWait(WebDriverWait wait) {
+		webDriverwaitTestMap.put(Thread.currentThread().getId(), wait);
+	}
+
+	/**
+	 * To get WebDriver wait for current Thread
+	 * 
+	 */
+	public static synchronized WebDriverWait getWait() {
+		return webDriverwaitTestMap.get(Thread.currentThread().getId());
+	}
+
+	/**
+	 * To get WebDriver Mini wait for current Thread
+	 * 
+	 */
+	public static synchronized WebDriverWait getMiniWait() {
+		return webDriverMiniwaitTestMap.get(Thread.currentThread().getId());
+	}
+
+	public static void openBrowser() {
+		// to open browser
+		Properties prop = new Properties();
+		String projectPath = System.getProperty("user.dir");
+		InputStream input = null;
+		try {
+			input = new FileInputStream(projectPath + "/src/main/java/Config/Config.properties");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			prop.load(input);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		String browser = prop.getProperty("browser");
+		ChromeOptions options = new ChromeOptions();
+		// to accept the untrusted certificates
+		options.setAcceptInsecureCerts(true);
+
+		WebDriver driver = null;
+		try {
+			if (browser.equalsIgnoreCase("chrome")) {
+				WebDriverManager.chromedriver().setup();
+				driver = new ChromeDriver(options);
+			}
+			driver.manage().window().maximize();
+			driver.manage().deleteAllCookies();
+//			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Integer.parseInt(prop.getProperty("ImplicitWait"))));
+//			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Integer.parseInt(prop.getProperty("PageLoadTimeOut"))));
+			
+			setWebDriver(driver);
+			WebDriverWait wait = new WebDriverWait(getWebDriver(), Duration.ofSeconds(30));
+			setWait(wait);
+			//driver.get("https://www.flipkart.com/")
+			driver.navigate().to("https://testautomationpractice.blogspot.com/");
+
+		}
+
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	public void quitBrowser() {
+		try {
+			getWebDriver().close();
+			getWebDriver().quit();
+		}catch(Exception e) {
+			System.out.println("Quit exception is : "+ e.getMessage());
+		}
+	}
+
+}
