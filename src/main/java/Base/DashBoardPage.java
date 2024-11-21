@@ -23,6 +23,9 @@ public class DashBoardPage extends BaseTest {
 		action.moveToElement(food).click().perform();
 		return this;
 	}
+	public static void navigateToLogin() {
+		getWebDriver().findElement(By.xpath("//span[text()='Login']")).click();
+	}
 	
 	
 

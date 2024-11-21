@@ -148,8 +148,8 @@ public class AmazonBrowser {
 			setWebDriver(driver);
 			WebDriverWait wait = new WebDriverWait(getWebDriver(), Duration.ofSeconds(30));
 			setWait(wait);
-			//driver.get("https://www.flipkart.com/")
-			driver.navigate().to("https://testautomationpractice.blogspot.com/");
+			driver.get("https://www.flipkart.com/");
+//			driver.navigate().to("https://testautomationpractice.blogspot.com/");
 
 		}
 

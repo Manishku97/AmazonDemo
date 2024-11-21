@@ -23,13 +23,13 @@ public class BaseTestAuto extends AmazonBrowser implements IHookable {
 		System.out.println(reportName);
 		AmazonLog.CreateReport(reportName, suitName);
 		AmazonLog.CreateTestStep("Test Execution for "+reportName);
-	//	openBrowser();
+		openBrowser();
 	}
 	@AfterClass
 	//Quit after Browser Opens
 	public void quitDriver() {
-//		AmazonLog.getExtentReports().flush();
-//		quitBrowser();
+		AmazonLog.getExtentReports().flush();
+		quitBrowser();
 		
 	}
 	@Override

@@ -9,11 +9,10 @@ public class Test extends BaseTest {
 	
 	
 @org.testng.annotations.Test()
-	
 	public void test() {		
 		//Perform General Actions
-//		dashBoardPage.generalActions();
-		System.out.println(	AmazonData.getInputData("Default_1","Comments"));
+		dashBoardPage.generalActions();
+		System.out.println(AmazonData.getInputData("Default_1","Comments"));
 		
 	}
 
