@@ -159,26 +159,12 @@ public class AmazonLog {
 	public static void LogFailure(String messages) {
 		Log(Status.FAIL, messages);
 	}
-	public  void LogSuccessWithImage(String message) {
+	public static void LogSuccessWithImage(String message) {
 		Log(Status.PASS, message,captureScreenShot());
 	}
-	public  void LogFailureWithImage(String message) {
+	public static void LogFailureWithImage(String message) {
 		Log(Status.FAIL, message,captureScreenShot());
 	}
 
 }
 
-//	//Listener Interface
-//		public void onTestStart(ITestResult result) {
-//			System.out.println("Test case Started");
-//		}
-//		//Listener Interface
-//		public void onTestFailure(ITestResult result) {
-//			System.out.println("Test case failed");
-//			try {
-//				getScreenShot();
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
