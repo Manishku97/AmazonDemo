@@ -14,6 +14,8 @@ public class Test extends BaseTest {
 		dashBoardPage.generalActions();
 		System.out.println(AmazonData.getInputData("Default_1","Comments"));
 		
+		
+		
 	}
 
 }

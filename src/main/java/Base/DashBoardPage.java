@@ -17,9 +17,10 @@ public class DashBoardPage extends BaseTest {
 		System.out.println(spanText.replaceLocator("Beauty, Toys & More"));
 		spanText.replaceLocator("Beauty, Toys & More").Click();
 		AmazonLog.CreateTestStep("Second Step");
-		divText.replaceLocator("Camera").Click();
+		divText.replaceLocator("Camera");
 		return this;
 	}
+	
 	public DashBoardPage navigateToLogin() {
 		getWebDriver().findElement(By.xpath("//span[text()='Login']")).click();
 		return this;

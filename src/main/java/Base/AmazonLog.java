@@ -37,8 +37,8 @@ public class AmazonLog {
 	public static synchronized void CreateReport(String ReportName, String suiteName) {
 		ExtentReports extent = new ExtentReports();
 		initializeSoftAsserts();
-		boolean isSharedReport = false; // Config.isSharedReport();
-		String sharedReportBasePath ="";      // AmazonConfig.getSharedPath();
+		boolean isSharedReport = AmazonConfig.isSharedReport();
+		String sharedReportBasePath =AmazonConfig.getSharedPath();
 		String sharedPath = "Results/";
 		if (isSharedReport)
 			sharedPath = sharedReportBasePath + "WebSiteAutomationResult_" + suiteName + "_";

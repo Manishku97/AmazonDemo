@@ -52,6 +52,7 @@ public class BaseLocator {
 		case XPATH:
 			byLocator = By.xpath(locatorValue);
 			break;
+			
 		case CLASSNAME:
 			byLocator = By.className(locatorValue);
 			break;
