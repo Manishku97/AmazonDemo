@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import Base.AmazonLog;
 import Base.BaseTest;
 import dev.failsafe.internal.util.Durations;
 import io.appium.java_client.functions.ExpectedCondition;
@@ -39,7 +40,7 @@ public class Practice extends BaseTest{
 	
 	@Test
 	public void handleAlert() throws InterruptedException {
-	amazonLog.CreateTestStep("Handling Alert");
+	AmazonLog.CreateTestStep("Handling Alert");
 //	getWebDriver().findElement(By.id("alertBtn")).click();
 	
 //	Alert alert=getWebDriver().switchTo().alert();
@@ -107,7 +108,7 @@ public class Practice extends BaseTest{
 //	action.dragAndDrop(source, target).perform();
 	
 
-	amazonLog.LogSuccessWithImage("Alert Succesfully Handled");
+	AmazonLog.LogSuccessWithImage("Alert Succesfully Handled");
 	
 	}
 

@@ -51,13 +51,19 @@ public class BaseLocator {
 		switch (locatorType) {
 		case XPATH:
 			byLocator = By.xpath(locatorValue);
+			break;
 		case CLASSNAME:
 			byLocator = By.className(locatorValue);
+			break;
+
 		case ID:
 			byLocator = By.id(locatorValue);
+			break;
+
 		case LINKTEXT:
 			byLocator = By.linkText(locatorValue);
 			break;
+
 		}
 		return byLocator;
 	}
