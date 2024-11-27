@@ -3,6 +3,7 @@ package Amazon.Controls;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import Amazon.enumFile.LocatorType;
@@ -52,7 +53,7 @@ public class BaseLocator {
 		case XPATH:
 			byLocator = By.xpath(locatorValue);
 			break;
-			
+
 		case CLASSNAME:
 			byLocator = By.className(locatorValue);
 			break;
@@ -162,6 +163,45 @@ public class BaseLocator {
 	public void ResetHighLightElement() {
 		((JavascriptExecutor) AmazonBrowser.getWebDriver()).executeScript("arguments[0].style.border=''",
 				FindElement());
+	}
+
+	// Scroll to the bottom of the page
+	public void scrollToBottom() {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) AmazonBrowser.getWebDriver();
+		jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		AmazonLog.LogInfo("Scrolled to the bottom of the page");
+	}
+
+	// Scroll to a specific element
+	public void scrollToElement() {
+		WebElement locator = FindElement();
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) AmazonBrowser.getWebDriver();
+		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", locator);
+		AmazonLog.LogInfo("Scrolled to : " + this._locatorDescription);
+	}
+
+	// Mouse hover over a specific element
+	public void mouseHover() {
+		Actions actions = new Actions(AmazonBrowser.getWebDriver());
+		WebElement element = FindElement();
+		actions.moveToElement(element).perform();
+		AmazonLog.LogInfo("Mouse hovered on element: " + this._locatorDescription);
+	}
+
+	// Scroll and take a screenshot
+	public void scrollAndTakeScreenshot() {
+//        String screenshotPath = AmazonLog.captureScreenShot();
+		scrollToElement();
+		AmazonLog.LogInfoWithImage("Scrolled to " + this._locatorDescription + " and took a screenshot");
+	}
+
+	// Scroll and take a highlighted screenshot
+	public void scrollAndTakeHighlightedScreenshot() {
+		scrollToElement();
+		HighLightElement();
+//        AmazonLog.getStatusNode().addScreenCaptureFromPath(screenshotPath,this._locatorDescription);
+		AmazonLog.LogInfoWithImage(
+				"Scrolled, highlighted,to " + this._locatorDescription + " and took a screenshot");
 	}
 
 }

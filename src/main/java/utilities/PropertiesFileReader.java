@@ -31,7 +31,7 @@ public class PropertiesFileReader {
 		if(prop==null) {
 			loadpropValues();
 		}
-		System.out.println(prop.getProperty(key));
+	//	System.out.println(prop.getProperty(key));
 		return prop.getProperty(key);
 	}
 	

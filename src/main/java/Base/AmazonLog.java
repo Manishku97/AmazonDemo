@@ -104,6 +104,9 @@ public class AmazonLog {
 		System.out.println("<<<<<< " + message + " >>>>>>");
 		if (status == Status.INFO)
 			getTestInfoNode().log(Status.INFO, message);
+		if (!screenshotPath.isBlank())
+			getTestStatusNode().log(status,message,
+					MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 		else if (status == status.PASS) {
 			getSoftAsserts().assertTrue(true, message);
 			if (!screenshotPath.isBlank())
@@ -165,6 +168,10 @@ public class AmazonLog {
 	public static void LogFailureWithImage(String message) {
 		Log(Status.FAIL, message,captureScreenShot());
 	}
+	public static void LogInfoWithImage(String message) {
+		Log(Status.INFO, message,captureScreenShot());
+	}
+	
 
 }
 
