@@ -2,19 +2,19 @@ package ui;
 
 import Base.AmazonData;
 import Base.BaseTest;
-import Base.BaseTestAuto;
-import Base.DashBoardPage;
+import utilities.TestInfo;
 
 public class Test extends BaseTest {
 	
 	
 @org.testng.annotations.Test()
+@TestInfo(ExcelFileName = "AmazonUserData",SheetName = "User",DataKey = "Default_1")
 	public void test() {
 		//Perform General Actions
 		dashBoardPage.generalActions();
-		System.out.println(AmazonData.getInputData("Default_1","Comments"));
-		
-		
+		System.out.println(AmazonData.getInputData("Name"));
+		System.out.println(AmazonData.getInputData("Password"));
+
 		
 	}
 

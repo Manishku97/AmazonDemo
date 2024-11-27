@@ -124,66 +124,6 @@ public class AmazonBrowser implements IHookable {
 		return webDriverMiniwaitTestMap.get(Thread.currentThread().getId());
 	}
 
-//	public static void openBrowser() {
-//		// to open browser
-//		Properties prop = new Properties();
-//		String projectPath = System.getProperty("user.dir");
-//		InputStream input = null;
-//		try {
-//			input = new FileInputStream(projectPath + "/src/main/java/Config/Config.properties");
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		try {
-//			prop.load(input);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		String browser = prop.getProperty("Browser");
-//
-//		WebDriver driver = null;
-//		try {
-//			if (browser.equalsIgnoreCase("chrome")) {
-//				ChromeOptions options = new ChromeOptions();
-//				// to accept the untrusted certificates
-//				options.setAcceptInsecureCerts(true);
-//				WebDriverManager.chromedriver().setup();
-//				driver = new ChromeDriver(options);
-//			} else if (browser.equalsIgnoreCase("edge")) {
-//				EdgeOptions options = new EdgeOptions();
-//				// to accept the untrusted certificates
-//				options.setAcceptInsecureCerts(true);
-//				WebDriverManager.edgedriver().setup();
-//				driver=new EdgeDriver(options);
-//			}
-//			driver.manage().window().maximize();
-//			driver.manage().deleteAllCookies();
-////			
-////			
-////					.pageLoadTimeout(Duration.ofSeconds(Integer.parseInt(prop.getProperty("PageLoadTimeOut"))));
-//
-//			setWebDriver(driver);
-//			WebDriverWait wait = new WebDriverWait(getWebDriver(), Duration.ofSeconds(30));
-//			setWait(wait);
-//			driver.navigate().to(AmazonConfig.getWebsiteUrl());
-////			driver.manage().timeouts()
-//			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Integer.parseInt(prop.getProperty("ImplicitWait"))));
-//		}
-//
-//		catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//	}
-//
-//	public void quitBrowser() {
-//		try {
-//			getWebDriver().close();
-//			getWebDriver().quit();
-//		} catch (Exception e) {
-//			System.out.println("Quit exception is : " + e.getMessage());
-//		}
-//	}
 
 	    public static void openBrowser() {
 	        Properties prop = new Properties();
@@ -199,6 +139,7 @@ public class AmazonBrowser implements IHookable {
 
 	        // Get browser property or fallback to default
 	        String browser = prop.getProperty("Browser", "chrome");
+	        String url=prop.getProperty("WebsiteURL");
 	        int pageLoadTimeout = Integer.parseInt(prop.getProperty("PageLoadTimeOut", String.valueOf(DEFAULT_PAGE_LOAD_TIMEOUT)));
 	        int implicitWait = Integer.parseInt(prop.getProperty("ImplicitWait", String.valueOf(DEFAULT_IMPLICIT_WAIT)));
 
@@ -233,7 +174,7 @@ public class AmazonBrowser implements IHookable {
 	            // Set WebDriver and navigate to the URL
 	            setWebDriver(driver);
 	            setWait(new WebDriverWait(driver, Duration.ofSeconds(pageLoadTimeout)));
-	            driver.navigate().to(AmazonConfig.getWebsiteUrl());
+	            driver.navigate().to(url);
 
 	        } catch (Exception e) {
 	            System.err.println("Error during browser setup: " + e.getMessage());
@@ -242,7 +183,7 @@ public class AmazonBrowser implements IHookable {
 	            }
 	        }
 	    }
-
+       //Quit Browser
 	    public static void quitBrowser() {
 	        try {
 	            WebDriver driver = getWebDriver();
@@ -254,6 +195,8 @@ public class AmazonBrowser implements IHookable {
 	            System.err.println("Error quitting browser: " + e.getMessage());
 	        }
 	    }
+	    
+	    
 		@Override
 		public void run(IHookCallBack callBack, ITestResult testResult) {
 			// TODO Auto-generated method stub
@@ -266,6 +209,7 @@ public class AmazonBrowser implements IHookable {
 				testResult.setStatus(ITestResult.FAILURE);
 			}
 		}
+
 }
 	
 
