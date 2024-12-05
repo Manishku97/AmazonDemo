@@ -6,6 +6,8 @@
       <class name="ui.Test">
         <methods>
           <include name="quitDriver"/>
+          <include name="afterSuiteExecution"/>
+          <include name="beforesuiteExecution"/>
           <include name="beforeClass"/>
           <include name="test"/>
         </methods>

@@ -1,4 +1,4 @@
-package utilities;
+package Amazon.utilities;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

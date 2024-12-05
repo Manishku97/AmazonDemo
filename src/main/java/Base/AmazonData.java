@@ -16,10 +16,10 @@ import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentTest;
 
-import utilities.TestInfo;
-import utilities.TestInfoContext;
+import Amazon.utilities.TestInfo;
+import Amazon.utilities.TestInfoContext;
 
-public class AmazonData {
+public class AmazonData  {
 
 	static Map<String, String> dataMap = new HashMap<String, String>();
 	private static final String DEFAULT_PATH = "C:\\Users\\AMAR\\eclipse-workspace\\Amazon.Demo\\TestDataExcel"
@@ -126,8 +126,7 @@ public class AmazonData {
             throw new IllegalArgumentException("Row not found for key: " + rowKey);
 
         } catch (Exception e) {
-            e.printStackTrace();
-            return "Error fetching data";
+        	throw new RuntimeException("Error while fetching data from Excel: " + e.getMessage(), e);
         }
     }
 

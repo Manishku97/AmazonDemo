@@ -202,6 +202,7 @@ public class BaseLocator {
 //        AmazonLog.getStatusNode().addScreenCaptureFromPath(screenshotPath,this._locatorDescription);
 		AmazonLog.LogInfoWithImage(
 				"Scrolled, highlighted,to " + this._locatorDescription + " and took a screenshot");
+		ResetHighLightElement();
 	}
 
 }

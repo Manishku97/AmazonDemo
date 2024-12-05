@@ -20,7 +20,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-import utilities.CaptureScreenShotUtils;
+import Amazon.utilities.CaptureScreenShotUtils;
 
 public class AmazonLog {
 	static Map<Long, ExtentTest> extentTestMap = new HashMap<Long, ExtentTest>();

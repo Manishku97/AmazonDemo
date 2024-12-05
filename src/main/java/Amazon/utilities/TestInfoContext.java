@@ -1,4 +1,4 @@
-package utilities;
+package Amazon.utilities;
 
 public class TestInfoContext {
     private static final ThreadLocal<TestInfo> testInfoHolder = new ThreadLocal<>();

@@ -139,6 +139,7 @@ public class AmazonBrowser implements IHookable {
 
 	        // Get browser property or fallback to default
 	        String browser = prop.getProperty("Browser", "chrome");
+	        String isHeadless = prop.getProperty("Headless", "N");
 	        String url=prop.getProperty("WebsiteURL");
 	        int pageLoadTimeout = Integer.parseInt(prop.getProperty("PageLoadTimeOut", String.valueOf(DEFAULT_PAGE_LOAD_TIMEOUT)));
 	        int implicitWait = Integer.parseInt(prop.getProperty("ImplicitWait", String.valueOf(DEFAULT_IMPLICIT_WAIT)));
@@ -149,6 +150,10 @@ public class AmazonBrowser implements IHookable {
 	            switch (browser.toLowerCase()) {
 	                case "chrome":
 	                    ChromeOptions chromeOptions = new ChromeOptions();
+	                	if(isHeadless.equalsIgnoreCase("Y")) {
+	                		chromeOptions.addArguments("headless"); // Enables headless mode
+	                		chromeOptions.addArguments("disable-gpu"); // Disables GPU for stability
+	                	}
 	                    chromeOptions.setAcceptInsecureCerts(true); // Accept untrusted certificates
 	                    WebDriverManager.chromedriver().setup();
 	                    driver = new ChromeDriver(chromeOptions);
@@ -156,6 +161,10 @@ public class AmazonBrowser implements IHookable {
 
 	                case "edge":
 	                    EdgeOptions edgeOptions = new EdgeOptions();
+	                	if(isHeadless.equalsIgnoreCase("Y")) {
+	                		edgeOptions.addArguments("headless"); // Enables headless mode
+	                		edgeOptions.addArguments("disable-gpu"); // Disables GPU for stability
+	                	}
 	                    edgeOptions.setAcceptInsecureCerts(true); // Accept untrusted certificates
 	                    WebDriverManager.edgedriver().setup();
 	                    driver = new EdgeDriver(edgeOptions);

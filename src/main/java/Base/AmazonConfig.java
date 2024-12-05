@@ -1,6 +1,6 @@
 package Base;
 
-import utilities.PropertiesFileReader;
+import Amazon.utilities.PropertiesFileReader;
 
 public class AmazonConfig {
 	
@@ -25,6 +25,9 @@ public class AmazonConfig {
 	}
 	public static String getBrowserName() {
 		return PropertiesFileReader.getValue("Browser");
+	}
+	public static String isSuitRun() {
+		return PropertiesFileReader.getValue("isSuitRun");
 	}
 	
 

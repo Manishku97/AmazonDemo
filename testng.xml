@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test name="Test">
+  <test thread-count="5" name="Test">
     <classes>
-      <class name="ui.AnnotationExample">
-      <methods>
-		  <include name= "f"/>
-	  </methods>
-      </class>
+      <class name="ui.Practice"/>
+      <class name="ui.Test"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

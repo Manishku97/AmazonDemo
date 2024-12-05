@@ -1,4 +1,4 @@
-package utilities;
+package Amazon.utilities;
 
 import java.util.Date;
 import java.io.File;
