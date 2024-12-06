@@ -26,8 +26,8 @@ public class AmazonConfig {
 	public static String getBrowserName() {
 		return PropertiesFileReader.getValue("Browser");
 	}
-	public static String isSuitRun() {
-		return PropertiesFileReader.getValue("isSuitRun");
+	public static boolean isSuitRun() {
+		return PropertiesFileReader.getValue("isSuitRun").equalsIgnoreCase("Y");
 	}
 	
 

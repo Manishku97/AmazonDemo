@@ -16,7 +16,7 @@ public class DashBoardPage extends BaseTest {
 		
 		AmazonLog.CreateTestStep("First Steps");
 		AmazonLog.LogSuccessWithImage("First Image");
-		System.out.println(AmazonData.getInputData("Comment"));
+		System.out.println(AmazonData.getInputData("Comments"));
 //		System.out.println(spanText.replaceLocator("Beauty, Toys & More"));
 		spanText.replaceLocator("Beauty, Toys & More").Click();
 //		spanText.replaceLocator("Fashion").Click();

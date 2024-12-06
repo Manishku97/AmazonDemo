@@ -4,10 +4,10 @@ package Amazon.utilities;
 public class TestSummary {
     private String className;
     private boolean passed;
-    private String executionTime;
+    private long executionTime;
     private String reportLink;
 
-    public TestSummary(String className, boolean passed, String executionTime, String reportLink) {
+    public TestSummary(String className, boolean passed, long executionTime, String reportLink) {
         this.className = className;
         this.passed = passed;
         this.executionTime = executionTime;
@@ -22,7 +22,7 @@ public class TestSummary {
         return passed;
     }
 
-    public String getExecutionTime() {
+    public long getExecutionTime() {
         return executionTime;
     }
 

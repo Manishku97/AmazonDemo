@@ -1,44 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-05T12:28:54 IST" name="Default suite" finished-at="2024-12-05T12:29:43 IST" duration-ms="48532">
+  <suite started-at="2024-12-06T13:56:21 IST" name="Suite" finished-at="2024-12-06T13:59:08 IST" duration-ms="166706">
     <groups>
     </groups>
-    <test started-at="2024-12-05T12:28:54 IST" name="Default test" finished-at="2024-12-05T12:29:43 IST" duration-ms="48532">
-      <class name="ui.Test">
-        <test-method is-config="true" signature="beforeClass(org.testng.ITestContext)[pri:0, instance:ui.Test@71075444]" started-at="2024-12-05T12:28:54 IST" name="beforeClass" finished-at="2024-12-05T12:29:35 IST" duration-ms="41061" status="PASS">
+    <test started-at="2024-12-06T13:56:21 IST" name="Test" finished-at="2024-12-06T13:59:08 IST" duration-ms="166706">
+      <class name="ui.Practice">
+        <test-method is-config="true" signature="beforeClass(org.testng.ITestContext)[pri:0, instance:ui.Practice@5745ca0e]" started-at="2024-12-06T13:56:21 IST" name="beforeClass" finished-at="2024-12-06T13:56:34 IST" duration-ms="12398" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@4efb13f1]]>
+                <![CDATA[org.testng.TestRunner@43786627]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method is-config="true" signature="beforesuiteExecution(org.testng.ITestResult)[pri:0, instance:ui.Test@71075444]" started-at="2024-12-05T12:29:35 IST" name="beforesuiteExecution" finished-at="2024-12-05T12:29:36 IST" duration-ms="101" status="PASS">
+        <test-method is-config="true" signature="beforesuiteExecution(org.testng.ITestResult)[pri:0, instance:ui.Practice@5745ca0e]" started-at="2024-12-06T13:56:34 IST" name="beforesuiteExecution" finished-at="2024-12-06T13:56:34 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name={null} status=CREATED method=Test.test()[pri:0, instance:ui.Test@71075444] output={null}]]]>
+                <![CDATA[[TestResult name={null} status=CREATED method=Practice.handleAlert()[pri:0, instance:ui.Practice@5745ca0e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforesuiteExecution -->
-        <test-method signature="test()[pri:0, instance:ui.Test@71075444]" started-at="2024-12-05T12:29:36 IST" name="test" finished-at="2024-12-05T12:29:41 IST" duration-ms="5420" status="FAIL">
-          <exception class="java.lang.RuntimeException">
+        <test-method signature="handleAlert()[pri:0, instance:ui.Practice@5745ca0e]" started-at="2024-12-06T13:56:34 IST" name="handleAlert" finished-at="2024-12-06T13:56:49 IST" duration-ms="15055" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[Error fetching input data: Error while fetching data from Excel: Column not found: Comment]]>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//p[text()='Drag me to my target']"}
+  (Session info: chrome=131.0.6778.109)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8e33ec24e328227cba4bfbf4ae3a19de, findElement {using=xpath, value=//p[text()='Drag me to my target']}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 131.0.6778.109, chrome: {chromedriverVersion: 131.0.6778.87 (ce31cae94873..., userDataDir: C:\Users\AMAR\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50344}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50344/devtoo..., se:cdpVersion: 131.0.6778.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8e33ec24e328227cba4bfbf4ae3a19de]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Error fetching input data: Error while fetching data from Excel: Column not found: Comment
-at Base.AmazonData.getInputData(AmazonData.java:68)
-at Base.DashBoardPage.generalActions(DashBoardPage.java:19)
-at ui.Test.test(Test.java:14)
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//p[text()='Drag me to my target']"}
+  (Session info: chrome=131.0.6778.109)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8e33ec24e328227cba4bfbf4ae3a19de, findElement {using=xpath, value=//p[text()='Drag me to my target']}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 131.0.6778.109, chrome: {chromedriverVersion: 131.0.6778.87 (ce31cae94873..., userDataDir: C:\Users\AMAR\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50344}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50344/devtoo..., se:cdpVersion: 131.0.6778.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8e33ec24e328227cba4bfbf4ae3a19de
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:364)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:358)
+at ui.Practice.handleAlert(Practice.java:49)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -70,28 +100,67 @@ at org.testng.TestNG.run(TestNG.java:1082)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.RuntimeException: Error while fetching data from Excel: Column not found: Comment
-at Base.AmazonData.getInputDataFromExcel(AmazonData.java:129)
-at Base.AmazonData.getInputData(AmazonData.java:66)
-... 33 more
-Caused by: java.lang.IllegalArgumentException: Column not found: Comment
-at Base.AmazonData.getInputDataFromExcel(AmazonData.java:111)
-... 34 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:ui.Test@71075444]" started-at="2024-12-05T12:29:41 IST" name="quitDriver" finished-at="2024-12-05T12:29:43 IST" duration-ms="1484" status="PASS">
+        </test-method> <!-- handleAlert -->
+        <test-method is-config="true" signature="quitDriver(org.testng.ITestContext)[pri:0, instance:ui.Practice@5745ca0e]" started-at="2024-12-06T13:56:49 IST" name="quitDriver" finished-at="2024-12-06T13:57:04 IST" duration-ms="14302" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@43786627]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
-        <test-method is-config="true" signature="afterSuiteExecution()[pri:0, instance:ui.Test@71075444]" started-at="2024-12-05T12:29:43 IST" name="afterSuiteExecution" finished-at="2024-12-05T12:29:43 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterSuiteExecution()[pri:0, instance:ui.Practice@5745ca0e]" started-at="2024-12-06T13:59:08 IST" name="afterSuiteExecution" finished-at="2024-12-06T13:59:23 IST" duration-ms="15232" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuiteExecution -->
+      </class> <!-- ui.Practice -->
+      <class name="ui.Test">
+        <test-method is-config="true" signature="beforeClass(org.testng.ITestContext)[pri:0, instance:ui.Test@48e1f6c7]" started-at="2024-12-06T13:57:04 IST" name="beforeClass" finished-at="2024-12-06T13:57:14 IST" duration-ms="9977" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@43786627]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method is-config="true" signature="beforesuiteExecution(org.testng.ITestResult)[pri:0, instance:ui.Test@48e1f6c7]" started-at="2024-12-06T13:57:14 IST" name="beforesuiteExecution" finished-at="2024-12-06T13:57:14 IST" duration-ms="5" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=Test.test()[pri:0, instance:ui.Test@48e1f6c7] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforesuiteExecution -->
+        <test-method signature="test()[pri:0, instance:ui.Test@48e1f6c7]" started-at="2024-12-06T13:57:14 IST" name="test" finished-at="2024-12-06T13:58:41 IST" duration-ms="87704" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method is-config="true" signature="quitDriver(org.testng.ITestContext)[pri:0, instance:ui.Test@48e1f6c7]" started-at="2024-12-06T13:58:41 IST" name="quitDriver" finished-at="2024-12-06T13:59:08 IST" duration-ms="26758" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@43786627]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitDriver -->
       </class> <!-- ui.Test -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
